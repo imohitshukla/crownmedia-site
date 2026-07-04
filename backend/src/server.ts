@@ -26,29 +26,18 @@ app.post('/api/contact', async (req: Request, res: Response): Promise<any> => {
       return res.status(400).json({ success: false, message: "Please enter a valid email address." });
     }
 
-    let transporter;
-
-    if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
-      transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-          user: process.env.EMAIL_USER,
-          pass: process.env.EMAIL_PASS, 
-        },
-      });
-    } else {
-      console.warn("EMAIL_USER or EMAIL_PASS environment variables are not set. Using Ethereal Email for testing.");
-      const testAccount = await nodemailer.createTestAccount();
-      transporter = nodemailer.createTransport({
-        host: "smtp.ethereal.email",
-        port: 587,
-        secure: false, 
-        auth: {
-          user: testAccount.user,
-          pass: testAccount.pass,
-        },
-      });
+    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+      console.error("Missing EMAIL_USER or EMAIL_PASS environment variables.");
+      return res.status(500).json({ success: false, message: "Server configuration error. Please contact the administrator." });
     }
+
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS, 
+      },
+    });
 
     const mailOptions = {
       from: process.env.EMAIL_USER || '"Test Sender" <test@example.com>',
@@ -75,13 +64,7 @@ Message: ${message}
     };
 
     const info = await transporter.sendMail(mailOptions);
-    
-    if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
-      console.log("Email sent successfully to princemaurya7187@gmail.com");
-    } else {
-      console.log("Test email sent! You can view it here:");
-      console.log(nodemailer.getTestMessageUrl(info));
-    }
+    console.log("Email sent successfully to princemaurya7187@gmail.com");
 
     return res.status(200).json({ 
       success: true, 
