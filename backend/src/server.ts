@@ -71,9 +71,9 @@ Message: ${message}
       message: `Thanks for reaching out, ${name}! We're reviewing your request for ${serviceOfInterest} and will email you shortly.` 
     });
 
-  } catch (error) {
+  } catch (error: any) {
     console.error("Error capturing lead:", error);
-    return res.status(500).json({ success: false, message: "Something went wrong on our end. Please try again later." });
+    return res.status(500).json({ success: false, message: "Server Error: " + (error.message || error.toString()) });
   }
 });
 
