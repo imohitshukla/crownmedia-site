@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -10,10 +11,14 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 mb-12">
           {/* Brand */}
           <div className="text-center md:text-left">
-            <Link href="/" className="text-2xl font-bold tracking-tight flex items-center justify-center md:justify-start gap-2 mb-2">
-              <span className="text-orange-500">👑</span>
-              <span className="text-gray-900">Crown</span>
-              <span className="text-gray-500 font-medium">Media</span>
+            <Link href="/" className="inline-block mb-4">
+              <Image 
+                src="/images/logo.jpeg" 
+                alt="Crown Media" 
+                width={200} 
+                height={60} 
+                className="object-contain hover:scale-105 transition-transform duration-300"
+              />
             </Link>
             <p className="text-gray-500 text-sm">Krafted by humans, for humans.</p>
           </div>

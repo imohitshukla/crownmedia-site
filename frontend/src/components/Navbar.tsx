@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -36,22 +37,16 @@ export default function Navbar() {
         {/* Logo */}
         <Link
           href="/"
-          className="flex flex-col items-center justify-center group gap-0.5"
+          className="flex items-center justify-center group"
         >
-          <div className="relative flex items-center justify-center">
-            <svg 
-              className="absolute -top-3 w-6 h-6 text-amber-500 group-hover:scale-110 transition-transform duration-300" 
-              viewBox="0 0 512 512" 
-              fill="currentColor"
-            >
-              <path d="M496 160c-26.5 0-48 21.5-48 48 0 7.8 1.9 15.2 5.3 21.8l-87.3 65.5c-4.4-1.1-9-1.8-13.9-1.8-13.6 0-26 5.8-34.6 15l-44-88.1c3.8-7 6.1-15.1 6.1-23.7 0-26.5-21.5-48-48-48s-48 21.5-48 48c0 8.7 2.3 16.7 6.1 23.7l-44 88.1c-8.7-9.2-21.1-15-34.6-15-4.9 0-9.6.7-13.9 1.8l-87.3-65.5c3.3-6.6 5.3-14 5.3-21.8 0-26.5-21.5-48-48-48S0 181.5 0 208c0 23.3 16.6 42.6 38.6 47.1l65.8 197.6c3.2 9.6 12.1 16.3 22.2 16.3h258.8c10.1 0 19-6.7 22.2-16.3l65.8-197.6C495.4 250.6 512 231.3 512 208c0-26.5-21.5-48-48-48z"/>
-            </svg>
-            <span className={`text-3xl font-serif font-bold tracking-tighter mt-2 ${isScrolled ? 'text-gray-900' : 'text-gray-900'}`}>CM</span>
-          </div>
-          <div className="flex flex-col items-center">
-            <span className="text-amber-500 font-serif font-bold tracking-[0.15em] text-[10px] leading-tight">CROWN MEDIA</span>
-            <span className={`text-[6px] tracking-[0.2em] uppercase ${isScrolled ? 'text-gray-500' : 'text-gray-500'}`}>Digital Marketing Agency</span>
-          </div>
+          <Image 
+            src="/images/logo.jpeg" 
+            alt="Crown Media" 
+            width={240} 
+            height={70} 
+            className="object-contain group-hover:scale-105 transition-transform duration-300"
+            priority
+          />
         </Link>
 
         {/* Desktop Nav */}

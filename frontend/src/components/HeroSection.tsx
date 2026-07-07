@@ -66,18 +66,59 @@ export default function HeroSection() {
           Varanasi's Best Creative Marketing Agency
         </motion.div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-gray-900 mb-6 leading-tight"
-        >
-          We don't just edit videos. <br className="hidden md:block" />
-          We build your <br className="md:hidden" />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-600">
-            Digital Legacy.
-          </span>
-        </motion.h1>
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-gray-900 mb-6 leading-tight flex flex-col md:flex-row flex-wrap justify-center items-center gap-x-4 md:gap-x-6 gap-y-2">
+          <div className="flex gap-x-4 md:gap-x-6">
+            {["Wear", "the"].map((word, i) => (
+              <motion.span
+                key={word}
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 + i * 0.1, ease: [0.2, 0.65, 0.3, 0.9] }}
+                className="inline-block"
+              >
+                {word}
+              </motion.span>
+            ))}
+          </div>
+          <div className="flex gap-x-4 md:gap-x-6">
+            <motion.span
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4, ease: [0.2, 0.65, 0.3, 0.9] }}
+              className="inline-block"
+            >
+              <motion.span
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600"
+              >
+                Crown
+              </motion.span>
+            </motion.span>
+            <motion.span
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.5, ease: [0.2, 0.65, 0.3, 0.9] }}
+                className="inline-block"
+            >
+              of
+            </motion.span>
+            <motion.span
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6, ease: [0.2, 0.65, 0.3, 0.9] }}
+              className="inline-block"
+            >
+               <motion.span
+                 animate={{ y: [0, -8, 0] }}
+                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                 className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600"
+              >
+                Success
+              </motion.span>
+            </motion.span>
+          </div>
+        </h1>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -97,7 +138,7 @@ export default function HeroSection() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-semibold py-4 px-10 rounded-full shadow-[0_0_30px_rgba(249,115,22,0.3)] transition-all text-lg flex items-center gap-2 group"
+              className="bg-gradient-to-r from-orange-400 to-orange-500 hover:from-orange-500 hover:to-orange-600 text-white font-semibold py-4 px-10 rounded-full shadow-[0_0_30px_rgba(197,155,39,0.3)] transition-all text-lg flex items-center gap-2 group"
             >
               Let's Talk About Your Brand
               <span className="group-hover:translate-x-1 transition-transform">

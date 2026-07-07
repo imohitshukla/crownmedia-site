@@ -6,6 +6,20 @@
 }
 
 @theme inline {
+  --color-orange-50: #fcf8e3;
+  --color-orange-100: #faefc7;
+  --color-orange-200: #f5e098;
+  --color-orange-300: #efcc60;
+  --color-orange-400: #ebb634;
+  --color-orange-500: #c59b27;
+  --color-orange-600: #a87b1c;
+  --color-orange-700: #855b17;
+  --color-orange-800: #6b4716;
+  --color-orange-900: #573915;
+
+  --color-amber-500: #0d2040;
+  --color-amber-600: #08142b;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
